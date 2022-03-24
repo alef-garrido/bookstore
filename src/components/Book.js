@@ -18,6 +18,7 @@ function Book() {
         <li key={book.i} className="book--item">
           <p>{book.title}</p>
           <small>{book.author}</small>
+          <button type="button">DELETE</button>
         </li>
       ))}
     </>
