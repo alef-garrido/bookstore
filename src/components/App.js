@@ -1,9 +1,12 @@
-import { Routes, Route, Link } from "react-router-dom";
-import Navbar from "./Navbar";
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './Navbar';
+import Books from './Books';
+import Categories from './Categories';
 
-const App = () => {
+function App() {
   return (
     <div className="app--container">
+      <h1>Bookstore</h1>
       <Navbar />
       <Routes>
         <Route path="/" element={<Books />} />
@@ -11,6 +14,6 @@ const App = () => {
       </Routes>
     </div>
   );
-};
+}
 
 export default App;
