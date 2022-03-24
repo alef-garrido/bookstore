@@ -1,12 +1,13 @@
 import { Routes, Route, Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const App = () => {
   return (
     <div className="app--container">
-      <h1>Werk!</h1>;
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
+        <Route path="/" element={<Books />} />
+        <Route path="categories" element={<Categories />} />
       </Routes>
     </div>
   );
