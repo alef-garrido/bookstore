@@ -1,7 +1,7 @@
 function Categories() {
   return (
-    <section>
-      <h2>This will be a list of Categories</h2>
+    <section className="categories--container">
+      <button type="button">Check satus</button>
     </section>
   );
 }
