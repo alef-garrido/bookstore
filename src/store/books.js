@@ -1,4 +1,5 @@
-import { v4 as uuidv4 } from "uuid/dist/v4";
+import { v4 as uuidv4 } from 'uuid/dist/v4';
+
 // Action types
 export const BOOK_ADDED = 'bookAdded';
 export const BOOK_REMOVED = 'bookRemoved';
