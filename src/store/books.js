@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from 'uuid/dist/v4';
 
 // Action types
-const BOOK_ADDED = 'bookAdded';
-const BOOK_REMOVED = 'bookRemoved';
+const BOOK_ADDED = 'bookstore/books/bookAdded';
+const BOOK_REMOVED = 'bookstore/books/bookRemoved';
 
 // ACTION CREATORS
 export const addBook = (payload) => ({

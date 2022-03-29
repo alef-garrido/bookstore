@@ -1,5 +1,5 @@
 // Action types
-const GET_STATUS = 'getStatus';
+const GET_STATUS = 'bookstore/categories/getStatus';
 
 // Action Creators
 export const getStatus = (payload) => ({
