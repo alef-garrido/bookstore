@@ -1,3 +1,5 @@
+/* eslint-disable default-param-last  */
+
 // Action types
 const GET_STATUS = 'bookstore/categories/getStatus';
 
@@ -9,7 +11,7 @@ export const getStatus = (payload) => ({
 
 // REDUCER
 
-export default function categoriesReducer(action, state = []) {
+export default function categoriesReducer(state = [], action) {
   switch (action.type) {
     case GET_STATUS:
       return 'Under Construction';
