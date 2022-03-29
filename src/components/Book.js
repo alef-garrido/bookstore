@@ -1,28 +1,22 @@
-const dummyData = [
-  {
-    i: 1,
-    title: 'Do androids dream of electric sheeps?',
-    author: 'Philip K. Dick',
-  },
-  {
-    i: 2,
-    title: 'La casa de los espiritus',
-    author: 'Isabel Allende',
-  },
-];
+import { PropTypes } from 'PropTypes';
 
-function Book() {
+function Book(props) {
+  const { book } = props;
   return (
-    <>
-      {dummyData.map((book) => (
-        <li key={book.i} className="book--item">
-          <p>{book.title}</p>
-          <small>{book.author}</small>
-          <button type="button">DELETE</button>
-        </li>
-      ))}
-    </>
+    <li key={book.id} className="book--item">
+      <p>{book.title}</p>
+      <small>{book.author}</small>
+      <button type="button">DELETE</button>
+    </li>
   );
 }
 
 export default Book;
+
+BookItem.propTypes = {
+  book: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    author: PropTypes.string,
+  }).isRequired,
+};

@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-// import Book from './Book';
+import Book from './Book';
 import BookForm from './BookForm';
 
 function Books() {
@@ -8,7 +8,7 @@ function Books() {
     <div className="book--list--container">
       <section className="book--list">
         <ul>
-          {books}
+          <Book />
         </ul>
       </section>
       <BookForm />
