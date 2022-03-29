@@ -1,5 +1,10 @@
-import { createStore } from 'redux';
-import reducer from './books';
+import { combineReducers, createStore } from '@reduxjs/toolkit';
+import booksReducer from './books';
 
+const rootReducer = combineReducers({
+  booksReducer,
+});
 
-export default store = createStore(reducer);
+const store = createStore(rootReducer);
+
+export default store;
