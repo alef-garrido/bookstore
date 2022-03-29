@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 function Book(props) {
   const { book } = props;
   return (
-    <li key={book.id} className="book--item">
+    <li className="book--item">
       <p>{book.title}</p>
       <small>{book.author}</small>
       <button type="button">DELETE</button>

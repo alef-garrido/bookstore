@@ -1,4 +1,3 @@
-/* eslint-disable default-param-last  */
 import { v4 as uuidv4 } from 'uuid';
 
 // Action types
@@ -17,7 +16,7 @@ export const removeBook = (payload) => ({
 });
 
 // REDUCER
-export default function booksReducer(state = [], action) {
+export default function booksReducer(state = [], action = {}) {
   switch (action.type) {
     case BOOK_ADDED:
       return [
