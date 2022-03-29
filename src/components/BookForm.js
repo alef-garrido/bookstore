@@ -28,8 +28,10 @@ function BookForm() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    e.target.title.value = '';
-    e.target.author.value = '';
+    setInput(() => ({
+      title: '',
+      author: '',
+    }));
   };
 
   return (
