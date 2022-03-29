@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/books';
 
 function BookForm() {
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const [input, setInput] = useState({
     title: '',
     author: '',
@@ -21,7 +21,7 @@ function BookForm() {
     setInput((prevState) => (
       {
         ...prevState,
-        [e.target.name]: [e.target.value],
+        [e.target.name]: e.target.value,
       }
     ))
   );
