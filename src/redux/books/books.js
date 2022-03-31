@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 const BOOK_ADDED = 'bookstore/books/bookAdded';
 const BOOK_REMOVED = 'bookstore/books/bookRemoved';
 
+const APPI_CALL_BEGAN = 'bookstore/books/apiCallBegan'
+
 // ACTION CREATORS
 export const addBook = (payload) => ({
   type: BOOK_ADDED,
@@ -14,6 +16,17 @@ export const removeBook = (payload) => ({
   type: BOOK_REMOVED,
   payload,
 });
+
+export const getBooks = (payload) => ({
+  type: APPI_CALL_BEGAN,
+  payload: {
+    url: '/books',
+    method: 'get',
+    data: {},
+    onSuccess: 'booksReceived',
+    onError: 'apiRequestFailed'
+  }
+})
 
 // REDUCER
 export default function booksReducer(state = [], action = {}) {
