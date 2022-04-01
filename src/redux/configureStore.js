@@ -1,16 +1,23 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { logger } from 'redux-logger';
+import { devToolsEnhancer } from 'redux-devtools-extension';
 import rootReducer from './rootReducer';
 import api from './middleware/api';
 
+const devtools = devToolsEnhancer({ trace: true });
+const middleware = applyMiddleware(
+  thunk,
+  api,
+);
+
+const composedEnhancer = compose(
+  middleware,
+  devtools,
+);
+
 const store = createStore(
   rootReducer,
-  applyMiddleware(
-    thunk, 
-    logger,
-    api  
-  ),
+  composedEnhancer,
 );
 
 export default store;

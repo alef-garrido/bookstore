@@ -1,40 +1,38 @@
-import axios from "axios";
-import endpoints from "../http-common";
+/* eslint-disable consistent-return */
+import axios from 'axios';
+import endpoints from '../http-common';
+import { apiCallBegan, apiCallSuccess, apiCallFailed } from '../books';
 
-const action = {
-  type: 'apiCallBegan',
-  payload: {
-    url: '/books',
-    method: 'get',
-    data: {},
-    onSucces: 'booksReceived',
-    onError: 'apiRequestFailed'
-  }
-}
+const api = ({ dispatch }) => (next) => async (action) => {
+  if (action.type !== apiCallBegan.type) return next(action);
 
-const api = ({dispatch}) => next => async action => {
-  if(action.type === 'apiCallBegan') next(action)
+  next(action);
 
   const {
     url,
     method,
     data,
     onSucces,
-    onError
+    onError,
   } = action.payload;
+
   try {
     const response = await axios.request({
       baseURL: endpoints.baseUrl,
       url,
       method,
-      data
+      data,
     });
-    dispatch({ type: onSucces, payload: response.data });
-
-  } catch(error) {
-    dispatch({ type: onError, payload: error })
+    // General
+    dispatch(apiCallSuccess(response.data));
+    // specific
+    if (onSucces) dispatch({ type: onSucces, payload: response.data });
+  } catch (error) {
+    // General error
+    dispatch(apiCallFailed(error));
+    // Specific error
+    if (onError) dispatch({ type: onError, payload: error });
   }
-
 };
 
 export default api;

@@ -1,19 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAction } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
 
 // Action Creators
-
-
-
+export const apiCallBegan = createAction('api/callBegan');
+export const apiCallSuccess = createAction('api/callSuccess');
+export const apiCallFailed = createAction('api/callFailed');
 
 // Entity Slice
-
 const slice = createSlice({
   name: 'books',
   initialState: {
     list: [],
     isFetching: false,
-    errorMessage: undefined,
+    lastFetch: null,
   },
 
   reducers: {
