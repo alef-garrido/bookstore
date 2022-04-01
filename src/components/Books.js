@@ -10,6 +10,7 @@ function Books() {
   useEffect(() => {
     dispatch(apiCallBegan({
       url: '/books',
+      method: 'GET',
       onSucces: 'booksReceived',
     }));
   }, []);

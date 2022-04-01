@@ -1,6 +1,6 @@
 /* eslint-disable consistent-return */
 import axios from 'axios';
-import endpoints from '../http-common';
+import { baseURL } from '../http-common';
 import { apiCallBegan, apiCallSuccess, apiCallFailed } from '../books';
 
 const api = ({ dispatch }) => (next) => async (action) => {
@@ -18,7 +18,7 @@ const api = ({ dispatch }) => (next) => async (action) => {
 
   try {
     const response = await axios.request({
-      baseURL: endpoints.baseUrl,
+      baseURL,
       url,
       method,
       data,
