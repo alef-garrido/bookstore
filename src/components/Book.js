@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/books';
+import { bookRemoved } from '../redux/books';
 
 function Book(props) {
   const { book } = props;
@@ -8,7 +8,7 @@ function Book(props) {
 
   const clickHandler = () => {
     const bookID = { id: book.id };
-    dispatch(removeBook(bookID));
+    dispatch(bookRemoved(bookID));
   };
 
   return (
