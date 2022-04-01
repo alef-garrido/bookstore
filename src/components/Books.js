@@ -1,8 +1,7 @@
-// import { useSelector } from 'react-redux';
-// import Book from './Book';
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import BookForm from './BookForm';
+import Book from './Book';
 import { apiCallBegan } from '../redux/books';
 
 function Books() {
@@ -11,15 +10,15 @@ function Books() {
     dispatch(apiCallBegan({
       url: '/books',
       method: 'GET',
-      onSucces: 'booksReceived',
+      onSucces: 'books/booksReceived',
     }));
   }, []);
-  // const books = useSelector((state) => state.booksReducer);
+  const books = useSelector((state) => state.entities.books);
   return (
     <div className="book--list--container">
       <section className="book--list">
         <ul>
-          {/* {books.map((book) => <Book key={book.id} book={book} />)} */}
+          {books.map((book) => <Book key={book.id} book={book} />)}
         </ul>
       </section>
       <BookForm />

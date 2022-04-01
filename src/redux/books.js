@@ -16,6 +16,10 @@ const slice = createSlice({
   },
 
   reducers: {
+    booksReceived: (books, action) => [
+      ...books.list,
+      action.payload,
+    ],
     bookAdded: (books, action) => {
       books.list.push({
         id: uuidv4(),
