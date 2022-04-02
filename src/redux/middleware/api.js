@@ -1,5 +1,4 @@
 /* eslint-disable consistent-return */
-import axios from 'axios';
 import { baseURL } from '../http-common';
 import { apiCallBegan, apiCallSuccess, apiCallFailed } from '../books';
 
@@ -9,7 +8,7 @@ const api = ({ dispatch }) => (next) => async (action) => {
   const {
     url,
     method,
-    data,
+    body,
     onStart,
     onSuccess,
     onError,
@@ -19,16 +18,19 @@ const api = ({ dispatch }) => (next) => async (action) => {
   next(action);
 
   try {
-    const response = await axios.request({
-      baseURL,
-      url,
+    const response = await fetch(`${baseURL}${url}`, {
       method,
-      data,
-    });
+      body,
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => Object.entries(data));
     // General
-    dispatch(apiCallSuccess(response.data));
+    dispatch(apiCallSuccess(response));
     // specific
-    if (onSuccess) dispatch({ type: onSuccess, payload: response.data });
+    if (onSuccess) dispatch({ type: onSuccess, payload: response });
   } catch (error) {
     // General error
     dispatch(apiCallFailed(error.message));

@@ -24,7 +24,7 @@ const slice = createSlice({
       books.loading = false;
     },
     booksReceived: (books, action) => {
-      books.list = Object.entries(action.payload);
+      books.list = action.payload;
       books.loading = false;
     },
     bookAdded: (books, action) => {
@@ -50,14 +50,10 @@ export const loadBooks = () => apiCallBegan({
   onError: booksRequestFailed.type,
 });
 
-export const addBook = (book) => fetch(`${baseURL}/books`, {
+export const addBook = (book) => apiCallBegan({
+  url,
   method: 'POST',
-  body: book,
-  headers: {
-    'Content-Type': 'application/json; charset=UTF-8',
-  },
-})
-  .then((res) => res.text())
-  .then((data) => console.log(data));
+  body: JSON.stringify(book),
+});
 
 export default slice.reducer;

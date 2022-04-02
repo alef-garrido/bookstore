@@ -17,7 +17,7 @@ function BookForm() {
       author: input.author,
       category: 'null',
     };
-    dispatch(addBook(JSON.stringify(newBook)));
+    dispatch(addBook(newBook));
   };
 
   const changeHandler = (e) => (
