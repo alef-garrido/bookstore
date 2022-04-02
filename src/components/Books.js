@@ -14,7 +14,7 @@ function Books() {
     <div className="book--list--container">
       <section className="book--list">
         <ul>
-          {books ? books.map((book) => <Book key={book[0]} book={book[1][0]} />) : 'Loading'}
+          {books ? books.map((book) => <Book id={book[0]} key={book[0]} book={book[1][0]} />) : 'Loading'}
         </ul>
       </section>
       <BookForm />

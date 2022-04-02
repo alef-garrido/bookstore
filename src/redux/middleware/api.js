@@ -1,5 +1,5 @@
 /* eslint-disable consistent-return */
-import { baseURL } from '../http-common';
+import baseURL from '../http-common';
 import { apiCallBegan, apiCallSuccess, apiCallFailed } from '../books';
 
 const api = ({ dispatch }) => (next) => async (action) => {
@@ -25,7 +25,10 @@ const api = ({ dispatch }) => (next) => async (action) => {
         'Content-Type': 'application/json; charset=UTF-8',
       },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (typeof res === 'object') return res.json();
+        return res.text();
+      })
       .then((data) => Object.entries(data));
     // General
     dispatch(apiCallSuccess(response));

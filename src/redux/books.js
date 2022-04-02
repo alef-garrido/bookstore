@@ -1,8 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-unused-vars */
 import { createSlice, createAction } from '@reduxjs/toolkit';
-import { v4 as uuidv4 } from 'uuid';
-import { baseURL } from './http-common';
 
 // Action
 export const apiCallBegan = createAction('api/callBegan');
@@ -27,12 +25,6 @@ const slice = createSlice({
       books.list = action.payload;
       books.loading = false;
     },
-    bookAdded: (books, action) => {
-      books.list.push(action.payload);
-    },
-    bookRemoved: (books, action) => {
-      books.list.filter((book) => book.id !== action.payload.id);
-    },
   },
 });
 
@@ -54,6 +46,18 @@ export const addBook = (book) => apiCallBegan({
   url,
   method: 'POST',
   body: JSON.stringify(book),
+  onStart: booksRequested.type,
+  onSuccess: booksReceived.type,
+  onError: booksRequestFailed.type,
+});
+
+export const removeBook = (id) => apiCallBegan({
+  url: `${url}/${id}`,
+  method: 'DELETE',
+  body: JSON.stringify({ item_id: id }),
+  onStart: booksRequested.type,
+  onSuccess: booksReceived.type,
+  onError: booksRequestFailed.type,
 });
 
 export default slice.reducer;
