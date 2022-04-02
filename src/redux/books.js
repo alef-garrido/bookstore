@@ -1,6 +1,8 @@
 /* eslint-disable no-param-reassign */
+/* eslint-disable no-unused-vars */
 import { createSlice, createAction } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
+import { baseURL } from './http-common';
 
 // Action
 export const apiCallBegan = createAction('api/callBegan');
@@ -10,33 +12,52 @@ export const apiCallFailed = createAction('api/callFailed');
 // Entity Slice
 const slice = createSlice({
   name: 'books',
-  initialState: [],
+  initialState: {
+    list: [],
+    loading: false,
+  },
   reducers: {
-    booksReceived: (books, action) => [
-      ...books,
-      action.payload,
-    ],
+    booksRequested: (books, action) => {
+      books.loading = true;
+    },
+    booksRequestFailed: (books, action) => {
+      books.loading = false;
+    },
+    booksReceived: (books, action) => {
+      books.list = Object.entries(action.payload);
+      books.loading = false;
+    },
     bookAdded: (books, action) => {
-      books.push({
-        id: uuidv4(),
-        title: action.payload.title,
-        author: action.payload.author,
-      });
+      books.list.push(action.payload);
     },
     bookRemoved: (books, action) => {
-      books.filter((book) => book.id !== action.payload.id);
+      books.list.filter((book) => book.id !== action.payload.id);
     },
   },
 });
 
-export const { bookAdded, bookRemoved, booksReceived } = slice.actions;
+export const {
+  bookAdded, bookRemoved, booksReceived, booksRequested, booksRequestFailed,
+} = slice.actions;
 
 // action creators
 const url = '/books';
 export const loadBooks = () => apiCallBegan({
   url,
   method: 'GET',
-  onSucces: booksReceived.type,
+  onStart: booksRequested.type,
+  onSuccess: booksReceived.type,
+  onError: booksRequestFailed.type,
 });
+
+export const addBook = (book) => fetch(`${baseURL}/books`, {
+  method: 'POST',
+  body: book,
+  headers: {
+    'Content-Type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((res) => res.text())
+  .then((data) => console.log(data));
 
 export default slice.reducer;
