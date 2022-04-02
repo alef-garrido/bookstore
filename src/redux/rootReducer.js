@@ -1,6 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import entitiesReducer from './entities';
+import booksReducer from './books';
+import categoriesReducer from './categories';
 
 export default combineReducers({
-  entities: entitiesReducer,
+  books: booksReducer,
+  categories: categoriesReducer,
 });
