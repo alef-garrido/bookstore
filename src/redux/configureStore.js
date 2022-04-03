@@ -1,12 +1,23 @@
-import { createStore, combineReducers } from '@reduxjs/toolkit';
-import booksReducer from './books/books';
-import categoriesReducer from './categories/categories';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import { devToolsEnhancer } from 'redux-devtools-extension';
+import rootReducer from './rootReducer';
+import api from './middleware/api';
 
-const rootReducer = combineReducers({
-  booksReducer,
-  categoriesReducer,
-});
+const devtools = devToolsEnhancer({ trace: true });
+const middleware = applyMiddleware(
+  api,
+  thunk,
+);
 
-const store = createStore(rootReducer);
+const composedEnhancer = compose(
+  middleware,
+  devtools,
+);
+
+const store = createStore(
+  rootReducer,
+  composedEnhancer,
+);
 
 export default store;
