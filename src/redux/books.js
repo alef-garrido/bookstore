@@ -15,6 +15,9 @@ const slice = createSlice({
     loading: false,
   },
   reducers: {
+    bookAdded: (books, action) => {
+      books.list.push(action.payload.body);
+    },
     booksRequested: (books, action) => {
       books.loading = true;
     },
@@ -46,9 +49,7 @@ export const addBook = (book) => apiCallBegan({
   url,
   method: 'POST',
   body: JSON.stringify(book),
-  onStart: booksRequested.type,
-  onSuccess: booksReceived.type,
-  onError: booksRequestFailed.type,
+  onSuccess: bookAdded.type,
 });
 
 export const removeBook = (id) => apiCallBegan({
