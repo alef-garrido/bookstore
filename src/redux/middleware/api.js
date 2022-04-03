@@ -26,11 +26,10 @@ const api = ({ dispatch }) => (next) => async (action) => {
       },
     })
       .then((res) => {
-        if (method === 'GET') return res.json();
+        if (typeof res === 'object') return res.json();
         return res.text();
       })
       .then((data) => Object.entries(data));
-
     // General
     dispatch(apiCallSuccess(response));
     // specific

@@ -6,8 +6,8 @@ import api from './middleware/api';
 
 const devtools = devToolsEnhancer({ trace: true });
 const middleware = applyMiddleware(
-  thunk,
   api,
+  thunk,
 );
 
 const composedEnhancer = compose(
