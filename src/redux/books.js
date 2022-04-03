@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
-/* eslint-disable no-unused-vars */
 import { createSlice, createAction } from '@reduxjs/toolkit';
 
 // Action
@@ -15,10 +14,24 @@ const slice = createSlice({
     loading: false,
   },
   reducers: {
-    booksRequested: (books, action) => {
+    bookAdded: (state, action) => {
+      const newItem = JSON.parse(action.payload);
+      const newBook = [
+        newItem.item_id,
+        [
+          { ...newItem },
+        ],
+      ];
+      state.list.push(newBook);
+    },
+    bookRemoved: (state, action) => {
+      const id = JSON.parse(action.payload).item_id;
+      state.list = state.list.filter((book) => book[0] !== id);
+    },
+    booksRequested: (books) => {
       books.loading = true;
     },
-    booksRequestFailed: (books, action) => {
+    booksRequestFailed: (books) => {
       books.loading = false;
     },
     booksReceived: (books, action) => {
@@ -47,7 +60,7 @@ export const addBook = (book) => apiCallBegan({
   method: 'POST',
   body: JSON.stringify(book),
   onStart: booksRequested.type,
-  onSuccess: booksReceived.type,
+  onSuccess: bookAdded.type,
   onError: booksRequestFailed.type,
 });
 
@@ -56,7 +69,7 @@ export const removeBook = (id) => apiCallBegan({
   method: 'DELETE',
   body: JSON.stringify({ item_id: id }),
   onStart: booksRequested.type,
-  onSuccess: booksReceived.type,
+  onSuccess: bookRemoved.type,
   onError: booksRequestFailed.type,
 });
 

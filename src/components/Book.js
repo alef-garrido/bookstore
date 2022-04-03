@@ -7,8 +7,7 @@ function Book(props) {
   const dispatch = useDispatch();
 
   const clickHandler = () => {
-    const bookID = id;
-    dispatch(removeBook(bookID));
+    dispatch(removeBook(id));
   };
 
   return (

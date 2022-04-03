@@ -24,16 +24,16 @@ const api = ({ dispatch }) => (next) => async (action) => {
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
       },
-    })
-      .then((res) => {
-        if (typeof res === 'object') return res.json();
-        return res.text();
-      })
-      .then((data) => Object.entries(data));
+    }).then((res) => {
+      if (method !== 'GET') return res.text();
+      return res.json().then((data) => Object.entries(data));
+    });
+
     // General
     dispatch(apiCallSuccess(response));
     // specific
-    if (onSuccess) dispatch({ type: onSuccess, payload: response });
+    if (onSuccess === 'books/booksReceived') dispatch({ type: onSuccess, payload: response });
+    else return dispatch({ type: onSuccess, payload: action.payload.body });
   } catch (error) {
     // General error
     dispatch(apiCallFailed(error.message));

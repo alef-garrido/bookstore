@@ -5,11 +5,11 @@ import Book from './Book';
 import { loadBooks } from '../redux/books';
 
 function Books() {
+  const books = useSelector((state) => state.books.list);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadBooks());
   }, []);
-  const books = useSelector((state) => state.books.list);
   return (
     <div className="book--list--container">
       <section className="book--list">
