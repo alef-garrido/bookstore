@@ -1,9 +1,14 @@
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { loadBooks } from '../redux/books-dux';
 import Book from './Book';
 import BookForm from './BookForm';
 
-function Books() {
-  const books = useSelector((state) => state.booksReducer);
+function BookList() {
+  const books = useSelector((state) => state.list);
+  useEffect(()  {
+
+  }, [])
   return (
     <div className="book--list--container">
       <section className="book--list">

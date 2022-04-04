@@ -1,4 +1,5 @@
 import { createSlice, createAction } from '@reduxjs/toolkit';
+import { booksEndpoint } from './data/commonEndpoints';
 
 // Books Slice
 const slice = createSlice({
@@ -8,6 +9,20 @@ const slice = createSlice({
     loading: false,
   },
   reducers: {
+    bookAdded: (state, action) => {
+      const newItem = JSON.parse(action.payload);
+      const newBook = [
+        newItem.item_id,
+        [
+          { ...newItem },
+        ],
+      ];
+      state.list.push(newBook);
+    },
+    bookRemoved: (state, action) => {
+      const id = JSON.parse(action.payload).item_id;
+      state.list = state.list.filter((book) => book[0] !== id);
+    },
     booksRequested: (state) => {
       state.loading = true;
     },
@@ -21,6 +36,9 @@ const slice = createSlice({
   },
 });
 
+// Get Actions from slice
+export const { bookAdded, bookRemoved ,booksReceived, booksRequestFailed, booksRequested } = slice.actions
+
 // Action Creators 
 
   // to handle API-Request Stages
@@ -28,6 +46,12 @@ export const apiRequestBegan = createAction('api/RequestBegan');
 export const apiRequestSucceed = createAction('api/RequestSucceed');
 export const apiRequestFailed = createAction('api/RequestFailed');
 
-
+  //to hablde UI events
+export const loadBooks = () => apiRequestBegan({
+    url: booksEndpoint,
+    method: 'GET',
+    onSucces: booksReceived.type,
+});
+  
 
 export default slice.reducer;

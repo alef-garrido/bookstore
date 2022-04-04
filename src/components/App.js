@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar';
-import Books from './Books';
+import BookList from './BookList';
 import Categories from './Categories';
 
 function App() {
