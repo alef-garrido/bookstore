@@ -1,9 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
 import { devToolsEnhancer } from 'redux-devtools-extension';
-import booksReducer from './books-dux';
-import categoriesReducer from './categories/categories';
+import thunk from 'redux-thunk';
 import apiCalls from './middleware/apiCalls';
+import rootReducer from './rootReducer';
 
 //enable communication with devtools browser extension
 const devtools = devToolsEnhancer({ trace: true });
@@ -12,11 +11,6 @@ const bundleEnhancer = compose(
   middleware,
   devtools,
 );
-
-const rootReducer = combineReducers({
-  booksReducer,
-  categoriesReducer,
-});
 
 const store = createStore(
   rootReducer,
