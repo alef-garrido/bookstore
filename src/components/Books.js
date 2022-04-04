@@ -1,20 +1,14 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import BookForm from './BookForm';
+import { useSelector } from 'react-redux';
 import Book from './Book';
-import { loadBooks } from '../redux/books';
+import BookForm from './BookForm';
 
 function Books() {
-  const books = useSelector((state) => state.books.list);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loadBooks());
-  }, []);
+  const books = useSelector((state) => state.booksReducer);
   return (
     <div className="book--list--container">
       <section className="book--list">
         <ul>
-          {books ? books.map((book) => <Book id={book[0]} key={book[0]} book={book[1][0]} />) : 'Loading'}
+          {books.map((book) => <Book key={book.id} book={book} />)}
         </ul>
       </section>
       <BookForm />
