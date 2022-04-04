@@ -1,7 +1,7 @@
-import { createStore, applyMiddleware } from "redux";
-import booksReducer from "./books";
-import categoriesReducer from "./categories/categories";
-import apiCalls from "./middleware/apiCalls";
+import { createStore, applyMiddleware } from 'redux';
+import booksReducer from './books';
+import categoriesReducer from './categories/categories';
+import apiCalls from './middleware/apiCalls';
 
 const middleware = applyMiddleware(apiCalls, thunk);
 

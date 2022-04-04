@@ -1,24 +1,24 @@
-import { createSlice, createAction } from "@reduxjs/toolkit";
+import { createSlice, createAction } from '@reduxjs/toolkit';
 
 // Books Slice
-
 const slice = createSlice({
   name: 'books',
-  initialState:{
+  initialState: {
     list: [],
-    loading:false,
+    loading: false,
   },
   reducers: {
-    bookAdded: (state, action) => {
-      newItem = JSON.parse(action.payload);
-      newBook = [
-        newItem.item_id,
-        [
-          { ...newItem }
-        ],
-      ]
-      state.list.push(newBook);
+    booksRequested: (state) => {
+      state.loading = true;
     },
-    Book
-  }
-})
+    booksReceived: (state) => {
+      state.list = action.payload;
+      books.loading = false;
+    },
+    booksRequestFailed: (state) => {
+      state.loading = false;
+    },
+  },
+});
+
+export default slice.reducer;
