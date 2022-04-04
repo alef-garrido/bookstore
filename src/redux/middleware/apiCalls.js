@@ -1,8 +1,11 @@
 import baseURL from '../data/commonEndpoints';
+import { apiRequestBegan, apiReqestSucced, apiRequestFailed } from '../books';
 
 const apiCalls = ({ dispatch }) => (next) => async (action) => {
   // If the action is not an apiCall, pass action to next middleware/reducer and dont execute rest of the code.
-  if (action.type !== apiCallBegan.type) return next(action); 
+  if (action.type !== apiRequestBegan.type) return next(action); 
+
+  next(action); // allows apiRequest to be visible while debbuging with devtools
 
   // If action is an API call, handle async request structure (make call - if success - if rejected);
   const {
@@ -28,11 +31,16 @@ const apiCalls = ({ dispatch }) => (next) => async (action) => {
         if (method !== 'GET') return res.text();
         return res.json().then((data) => Object.entries(data));
       });
-      // if success from promise response, dispatch the action passed as onSuccess with the response as payload
-    dispatch({ type: onSuccess, payload: apiResponse.data });
+    // General succes dispatch: if promise succeed, dispatch apiRequestSuccedd action with response as payload
+    dispatch(apiCallSuccess(apiResponse.data)); 
+    // Specific success dipacth: if success from promise response, dispatch the action passed as onSuccess with the response as payload
+    if(onSuccess === 'books/booksReceived') dispatch({ type: onSuccess, payload: apiResponse.data });
+    else return dispatch({ type: onSuccess, payload: action.payload.body });  
   } catch (error) {
-    // if rejected dispatch action passed as onError with error message as payload
-    dispatch({ type: onError, payload: error.message });
+    // General error dispatch: if rejected dispatch apiRequest action with error message as payload
+    dispatch(apiRequestFailed(error.message))
+    // Specific errpr dispatch: if rejected dipacth specified action passed as onError with error message as payload
+    if (onError) dispatch({ type: onError, payload: error.message });
   }
 };
 

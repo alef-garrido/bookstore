@@ -21,4 +21,13 @@ const slice = createSlice({
   },
 });
 
+// Action Creators 
+
+  // to handle API-Request Stages
+export const apiRequestBegan = createAction('api/RequestBegan');
+export const apiRequestSucceed = createAction('api/RequestSucceed');
+export const apiRequestFailed = createAction('api/RequestFailed');
+
+
+
 export default slice.reducer;
