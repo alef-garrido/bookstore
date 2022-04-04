@@ -1,10 +1,10 @@
 import baseURL from '../data/commonEndpoints';
 
 const apiCalls = ({ dispatch }) => (next) => async (action) => {
-  if (action.type !== apiCallBegan.type) return next(action); // If the action is not an apiCall, pass action to next middleware/reducer and dont execute rest of the code.
+  // If the action is not an apiCall, pass action to next middleware/reducer and dont execute rest of the code.
+  if (action.type !== apiCallBegan.type) return next(action); 
 
   // If action is an API call, handle async request structure (make call - if success - if rejected);
-
   const {
     url,
     method,
