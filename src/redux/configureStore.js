@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { devToolsEnhancer } from 'redux-devtools-extension';
-import booksReducer from './books';
+import booksReducer from './books-dux';
 import categoriesReducer from './categories/categories';
 import apiCalls from './middleware/apiCalls';
 

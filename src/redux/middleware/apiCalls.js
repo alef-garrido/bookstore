@@ -1,5 +1,5 @@
 import baseURL from '../data/commonEndpoints';
-import { apiRequestBegan, apiReqestSucced, apiRequestFailed } from '../books';
+import { apiRequestBegan, apiReqestSucced, apiRequestFailed } from '../books-dux';
 
 const apiCalls = ({ dispatch }) => (next) => async (action) => {
   // If the action is not an apiCall, pass action to next middleware/reducer and dont execute rest of the code.
