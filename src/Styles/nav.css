@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 .navBar--container {
+  position: relative;
   width: 100%;
   height: 5.875rem;
   padding: 0 6.25rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  box-shadow: 0px 1px #b3b3b3b9;
 }
 
-.navBar--container h1 {
+.navBar--logo h1 {
   color: #0290ff;
   width: 15rem;
   height: 2.313rem;
@@ -21,6 +23,12 @@
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
+}
+
+.navBar--menu {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
 }
 
 .navBar--link {
@@ -35,12 +43,26 @@
   line-height: normal;
   letter-spacing: 1.9px;
   text-decoration: none;
+  color: #121212;
+  opacity: 0.5;
 }
 
-.nav--logIcon {
+.navBar--link:focus {
+  opacity: 1;
+}
+
+.navBar--logoContainer {
+  border: .5px solid rgba(128, 128, 128, 0.432);
+  cursor: pointer;
+  border-radius: 100%;
+  padding: .5rem;
+  margin-left: auto;
+}
+
+.navBar--logIcon {
+  /* right: 6.25rem; */
   width: 1.063rem;
   height: 1.063rem;
   justify-self: flex-end;
-  border: .5px solid gray;
-  border-radius: 50%;
+  color: #0290ff;
 }
