@@ -1,6 +1,7 @@
 import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books-dux';
+import '../Styles/book.css';
 
 function Book(props) {
   const { book, id } = props;
@@ -12,14 +13,25 @@ function Book(props) {
 
   return (
     <li id={id} className="book--item">
-      <p>{book.title}</p>
-      <small>{book.author}</small>
-      <button
-        type="button"
-        onClick={clickHandler}
-      >
-        DELETE
-      </button>
+      <div className="book--col-1">
+        <div className="book--data">
+          <small className="data--category">{book.category}</small>
+          <p className="data--title">{book.title}</p>
+          <small className="data--author">{book.author}</small>
+        </div>
+        <div className="book--actions">
+          <button type="button">Coments</button>
+          <button
+            type="button"
+            onClick={clickHandler}
+          >
+            Remove
+          </button>
+          <button type="button">Edit</button>
+        </div>
+      </div>
+      <div className="book--col-2" />
+      <div className="book--col-3" />
     </li>
   );
 }
@@ -29,6 +41,7 @@ Book.propTypes = {
     id: PropTypes.string,
     title: PropTypes.string,
     author: PropTypes.string,
+    category: PropTypes.string.isRequired,
   }).isRequired,
   id: PropTypes.string.isRequired,
 };
