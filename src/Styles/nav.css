@@ -36,3 +36,11 @@
   letter-spacing: 1.9px;
   text-decoration: none;
 }
+
+.nav--logIcon {
+  width: 1.063rem;
+  height: 1.063rem;
+  justify-self: flex-end;
+  border: .5px solid gray;
+  border-radius: 50%;
+}

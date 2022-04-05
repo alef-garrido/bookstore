@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../Styles/nav.css';
+import { ImUser } from 'react-icons/im';
 
 function Navbar() {
   return (
@@ -11,6 +12,7 @@ function Navbar() {
       <Link className="navBar--link" to="/categories">
         CATEGORIES
       </Link>
+      <ImUser className="nav--logIcon" />
     </nav>
   );
 }
