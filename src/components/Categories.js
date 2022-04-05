@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getStatus } from '../redux/categories/categories';
+import { getStatus } from '../redux/categories-dux';
 
 function Categories() {
   const [visible, setVisible] = useState(false);
