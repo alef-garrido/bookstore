@@ -1,13 +1,13 @@
 import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { bookRemoved } from '../redux/books-dux';
+import { removeBook } from '../redux/books-dux';
 
 function Book(props) {
   const { book, id } = props;
   const dispatch = useDispatch();
 
   const clickHandler = () => {
-    dispatch(bookRemoved(id));
+    dispatch(removeBook(id));
   };
 
   return (

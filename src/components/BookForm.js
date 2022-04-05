@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { bookAdded } from '../redux/books-dux';
+import { addBook } from '../redux/books-dux';
 
 function BookForm() {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ function BookForm() {
       title: input.title,
       author: input.author,
     };
-    dispatch(bookAdded(newBook));
+    dispatch(addBook(newBook));
   };
 
   const changeHandler = (e) => (

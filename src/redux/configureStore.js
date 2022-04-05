@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import apiCalls from './middleware/apiCalls';
 import rootReducer from './rootReducer';
 
-//enable communication with devtools browser extension
+// enable communication with devtools browser extension
 const devtools = devToolsEnhancer({ trace: true });
 const middleware = applyMiddleware(thunk, apiCalls);
 const bundleEnhancer = compose(
@@ -14,7 +14,7 @@ const bundleEnhancer = compose(
 
 const store = createStore(
   rootReducer,
-  bundleEnhancer,  
+  bundleEnhancer,
 );
 
 export default store;

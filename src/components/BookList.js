@@ -5,16 +5,16 @@ import Book from './Book';
 import BookForm from './BookForm';
 
 function BookList() {
-  const books = useSelector((state) => state.books.list);
+  const books = useSelector((state) => state.Books.list);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadBooks());
-  }, [])
+  }, []);
   return (
     <div className="book--list--container">
       <section className="book--list">
         <ul>
-        {books ? books.map((book) => <Book id={book[0]} key={book[0]} book={book[1][0]} />) : 'Loading'}
+          {books ? books.map((book) => <Book id={book[0]} key={book[0]} book={book[1][0]} />) : 'Loading'}
         </ul>
       </section>
       <BookForm />

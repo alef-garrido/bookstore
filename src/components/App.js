@@ -9,7 +9,7 @@ function App() {
       <h1>Bookstore</h1>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Books />} />
+        <Route path="/" element={<BookList />} />
         <Route path="categories" element={<Categories />} />
       </Routes>
     </div>
