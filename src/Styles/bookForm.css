@@ -1,0 +1,42 @@
+.book--form-container {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(128, 128, 128, 0.623);
+}
+
+.book--form-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #888;
+}
+
+.book--form-container form {
+  width: 100%;
+  margin-top: 1.188rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.form--input {
+  position: relative;
+  flex-grow: 1;
+  width: 20rem;
+  height: 2.8rem;
+  margin-right: 1rem;
+  padding: 0 0.5rem;
+}
+
+.form--bttn {
+  flex-grow: 1;
+  width: 8rem;
+  color: white;
+  background-color: #0290ff;
+  font-family: 'Roboto Slab', serif;
+  border: none;
+  border-radius: 3px;
+}
+
+.book--form-container form > select {
+  color: #888;
+}
