@@ -75,22 +75,16 @@
 .book--col-2 {
   align-items: center;
   justify-content: flex-end;
-  margin-right: 1rem;
+  margin-right: 1.5rem;
   display: flex;
 }
 
 .book--col-2 * {
-  margin-right: 1.2rem;
+  margin-right: 1rem;
 }
 
-.progress--circle {
-  width: 4.25rem;
-  height: 4.25rem;
-  border-style: solid;
-  border-width: 5px;
-  border-image-source: linear-gradient(to bottom, #307bbe, #379cf6);
-  border-image-slice: 1;
-  border-radius: 50%;
+.loader--display {
+  width: 6rem;
 }
 
 .progress--digit {
@@ -112,12 +106,12 @@
 }
 
 .chapter--title {
-  color:  #706e6e;
+  color: #706e6e;
   font-family: 'Roboto Slab', serif;
   font-size: 0.813rem;
   font-weight: 300;
   margin-top: -8px;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .chapter--info {
@@ -136,10 +130,10 @@
   color: white;
   background-color: #0290ff;
   margin: 1.438rem 0;
-  padding: 0.438rem 1.188rem 0.5rem 1.375rem;
+  padding: 0.5rem 1rem;
   border-radius: 3px;
   font-family: 'RobotoSlab', serif;
-  font-size: 0.813rem;
+  font-size: 0.75rem;
   font-weight: 100;
   letter-spacing: 0.5px;
   text-align: center;
