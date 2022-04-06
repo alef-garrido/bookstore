@@ -1,5 +1,6 @@
 :root {
   --primary-black: black;
+  --primary-gray: #706e6e;
   --primary-white: white;
   --primary-blue: #0290ff;
 }
@@ -16,6 +17,10 @@ body {
   background-color: #f5f6fa;
 }
 
+.w-100 {
+  width: 100%;
+}
+
 .hide {
   display: none;
 }
@@ -30,9 +35,37 @@ body {
 }
 
 .ff-RobSlab {
-  font-family: 'RobotoSlab', serif;
+  font-family: 'Roboto Slab', serif;
+}
+
+.fc-white {
+  color: var(--primary-white);
 }
 
 .fc-blue {
   color: var(--primary-blue);
+}
+
+.fw-300 {
+  font-weight: 300;
+}
+
+.fc-gray {
+  color: var(--primary-gray);
+}
+
+.bck-white {
+  background-color: var(--primary-white);
+}
+
+.bck-blue {
+  background-color: var(--primary-blue);
+}
+
+.brdr-gray {
+  border: 0.5px solid rgba(128, 128, 128, 0.432);
+}
+
+.brdr-no {
+  border: none;
 }
