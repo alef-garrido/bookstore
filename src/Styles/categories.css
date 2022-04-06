@@ -5,6 +5,7 @@
   display: grid;
   place-items: center;
 }
+
 .categories--container button {
   border: none;
   background-color: #0290ff;
@@ -12,6 +13,7 @@
   padding: 1rem 2rem;
   cursor: pointer;
 }
+
 .status--display {
   color: black;
   font-family: 'Montserrat', sans-serif;
