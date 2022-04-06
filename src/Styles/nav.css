@@ -5,8 +5,6 @@
   width: 100%;
   height: 5.875rem;
   padding: 0 6.25rem;
-  display: flex;
-  align-items: center;
   justify-content: flex-start;
   box-shadow: 0 1px #b3b3b3b9;
 }
@@ -16,31 +14,19 @@
   width: 15rem;
   height: 2.313rem;
   margin: 0.375rem 2.938rem 0.125rem 0;
-  font-family: 'Montserrat', sans-serif;
   font-size: 1.875rem;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
 }
 
 .navBar--menu {
   flex-grow: 1;
-  display: flex;
-  align-items: center;
 }
 
 .navBar--link {
   width: 3.688rem;
   height: 1rem;
   margin: 1.125rem 2.563rem 0.688rem 0;
-  font-family: 'Montserrat', sans-serif;
   font-size: 0.813rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
   letter-spacing: 1.9px;
   text-decoration: none;
   color: #121212;
@@ -60,7 +46,6 @@
 }
 
 .navBar--logIcon {
-  /* right: 6.25rem; */
   width: 1.063rem;
   height: 1.063rem;
   justify-self: flex-end;

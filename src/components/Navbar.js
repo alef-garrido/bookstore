@@ -5,15 +5,15 @@ import { ImUser } from 'react-icons/im';
 function Navbar() {
   return (
     <nav>
-      <div className="navBar--container">
-        <div className="navBar--logo">
+      <div className="navBar--container flex-row">
+        <div className="navBar--logo ff-Mont">
           <h1>Bookstore CMS</h1>
         </div>
-        <div className="navBar--menu">
-          <Link className="navBar--link" to="/">
+        <div className="navBar--menu flex-row">
+          <Link className="navBar--link ff-Mont" to="/">
             BOOKS
           </Link>
-          <Link className="navBar--link" to="/categories">
+          <Link className="navBar--link ff-Mont" to="/categories">
             CATEGORIES
           </Link>
           <div className="navBar--logoContainer">
