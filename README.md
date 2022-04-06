@@ -2,7 +2,7 @@
 
 # Bookstore Single Page App
 
-> Books-themed REACT SPA. Reading list manager that allows users to maintain a list of books and categories and, add/remove books from the list
+> Books-themed REACT SPA that uses REDUX middlewares to comunicate with an API. Reading list manager that allows users to maintain a list of books and categories and, add/remove books from the list
 
 
 ![](./src/assets/app-screencast.gif)
@@ -94,6 +94,7 @@ Give a ⭐️ if you like this project!
 
 - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 - Microverse's Curriculum project
+- Microverse's Books API
 - Thanks to all code reviewers
 
 ## 📝 License
