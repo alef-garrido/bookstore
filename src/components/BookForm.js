@@ -40,8 +40,8 @@ function BookForm() {
 
   return (
     <section className="book--form-container">
-      <h5 className="book--form-title">ADD NEW BOOK</h5>
-      <form onSubmit={submitHandler} className="book--form">
+      <h5 className="book--form-title ff-Mont fc-text">ADD NEW BOOK</h5>
+      <form onSubmit={submitHandler} className="book--form w-100">
         <input
           className="form--input"
           type="text"
@@ -60,7 +60,7 @@ function BookForm() {
         />
         <select
           name="category"
-          className="form--input"
+          className="form--input  fc-text"
           onChange={changeHandler}
           value={input.category || ''}
         >
@@ -73,7 +73,7 @@ function BookForm() {
           <option value="Thriller">Thriller</option>
         </select>
         <button
-          className="form--bttn"
+          className="form--bttn fc-white bck-blue ff-RobSlab brdr-no"
           type="submit"
           onClick={submitBook}
         >

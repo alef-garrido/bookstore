@@ -3,6 +3,7 @@
   --primary-gray: #706e6e;
   --primary-white: white;
   --primary-blue: #0290ff;
+  --text-gray: #888;
 }
 
 * {
@@ -52,6 +53,10 @@ body {
 
 .fc-gray {
   color: var(--primary-gray);
+}
+
+.fc-text {
+  color: var(--text-gray);
 }
 
 .bck-white {
