@@ -1,7 +1,7 @@
 :root {
   --primary-black: black;
   --primary-white: white;
-  --primary-blue: blue;  
+  --primary-blue: #0290ff;
 }
 
 * {
@@ -31,4 +31,8 @@ body {
 
 .ff-RobSlab {
   font-family: 'RobotoSlab', serif;
+}
+
+.fc-blue {
+  color: var(--primary-blue);
 }

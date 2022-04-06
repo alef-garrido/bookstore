@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav>
       <div className="navBar--container flex-row">
-        <div className="navBar--logo ff-Mont">
+        <div className="navBar--logo ff-Mont fc-blue">
           <h1>Bookstore CMS</h1>
         </div>
         <div className="navBar--menu flex-row">
@@ -17,7 +17,7 @@ function Navbar() {
             CATEGORIES
           </Link>
           <div className="navBar--logoContainer">
-            <ImUser className="navBar--logIcon" />
+            <ImUser className="navBar--logIcon fc-blue" />
           </div>
         </div>
       </div>
