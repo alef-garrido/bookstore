@@ -20,10 +20,12 @@ const slice = createSlice({
         ],
       ];
       state.list.push(newBook);
+      state.loading = false;
     },
     bookRemoved: (state, action) => {
       const id = JSON.parse(action.payload).item_id;
       state.list = state.list.filter((book) => book[0] !== id);
+      state.loading = false;
     },
     booksRequested: (state) => {
       state.loading = true;
@@ -60,7 +62,7 @@ export const loadBooks = () => apiRequestBegan({
 });
 
 export const addBook = (book) => {
-  const { title, author } = book;
+  const { title, author, category } = book;
   return apiRequestBegan({
     url: booksEndpoint,
     method: 'POST',
@@ -68,7 +70,7 @@ export const addBook = (book) => {
       item_id: uuidv4(),
       title,
       author,
-      category: null,
+      category,
     }),
     onStart: booksRequested.type,
     onSuccess: bookAdded.type,

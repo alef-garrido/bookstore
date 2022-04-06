@@ -1,0 +1,16 @@
+.categories--container {
+  overflow: hidden;
+  height: 90vh;
+  display: grid;
+  place-items: center;
+}
+
+.categories--container button {
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
+
+.status--display {
+  font-size: 10rem;
+  font-weight: 800;
+}

@@ -3,9 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loadBooks } from '../redux/books-dux';
 import Book from './Book';
 import BookForm from './BookForm';
+import Loader from './Loader';
+import '../Styles/bookList.css';
 
 function BookList() {
   const books = useSelector((state) => state.Books.list);
+  const status = useSelector((state) => state.Books.loading);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadBooks());
@@ -14,7 +17,11 @@ function BookList() {
     <div className="book--list--container">
       <section className="book--list">
         <ul>
-          {books ? books.map((book) => <Book id={book[0]} key={book[0]} book={book[1][0]} />) : 'Loading'}
+          {
+            status
+              ? <Loader />
+              : books.map((book) => <Book id={book[0]} key={book[0]} book={book[1][0]} />)
+}
         </ul>
       </section>
       <BookForm />

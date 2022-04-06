@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --primary-black: black;
+  --primary-gray: #706e6e;
+  --primary-white: white;
+  --primary-blue: #0290ff;
+  --text-gray: #888;
+  --ff-Mont: 'Montserrat', sans-serif;
+  --ff-RS: 'Roboto Slab', serif;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,10 +17,68 @@
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f6fa;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 .hide {
   display: none;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+}
+
+.ff-Mont {
+  font-family: var(--ff-Mont);
+}
+
+.ff-RobSlab {
+  font-family: var(--ff-RS);
+}
+
+.fc-white {
+  color: var(--primary-white);
+}
+
+.fc-blue {
+  color: var(--primary-blue);
+}
+
+.fw-300 {
+  font-weight: 300;
+}
+
+.fc-gray {
+  color: var(--primary-gray);
+}
+
+.fc-black {
+  color: var(--primary-black);
+}
+
+.fc-text {
+  color: var(--text-gray);
+}
+
+.bck-white {
+  background-color: var(--primary-white);
+}
+
+.bck-blue {
+  background-color: var(--primary-blue);
+}
+
+.brdr-gray {
+  border: 0.5px solid rgba(128, 128, 128, 0.432);
+}
+
+.brdr-no {
+  border: none;
 }
