@@ -20,10 +20,12 @@ const slice = createSlice({
         ],
       ];
       state.list.push(newBook);
+      state.loading = false;
     },
     bookRemoved: (state, action) => {
       const id = JSON.parse(action.payload).item_id;
       state.list = state.list.filter((book) => book[0] !== id);
+      state.loading = false;
     },
     booksRequested: (state) => {
       state.loading = true;
