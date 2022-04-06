@@ -60,7 +60,7 @@ export const loadBooks = () => apiRequestBegan({
 });
 
 export const addBook = (book) => {
-  const { title, author } = book;
+  const { title, author, category } = book;
   return apiRequestBegan({
     url: booksEndpoint,
     method: 'POST',
@@ -68,7 +68,7 @@ export const addBook = (book) => {
       item_id: uuidv4(),
       title,
       author,
-      category: null,
+      category,
     }),
     onStart: booksRequested.type,
     onSuccess: bookAdded.type,

@@ -8,12 +8,14 @@ function BookForm() {
   const [input, setInput] = useState({
     title: '',
     author: '',
+    category: '',
   });
 
   const submitBook = () => {
     const newBook = {
       title: input.title,
       author: input.author,
+      category: input.category,
     };
     dispatch(addBook(newBook));
   };
@@ -55,7 +57,12 @@ function BookForm() {
           onChange={changeHandler}
           value={input.author || ''}
         />
-        <select name="Category" className="form--input" placeholder="Category">
+        <select
+          name="category"
+          className="form--input"
+          onChange={changeHandler}
+          value={input.category || ''}
+        >
           <option value="0">Category</option>
           <option value="Sci-Fi">Sci-Fi</option>
           <option value="Romance">Romance</option>

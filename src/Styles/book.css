@@ -62,6 +62,7 @@
   padding-right: 0.938rem;
   color: #4386bf;
   font-family: 'Roboto Slab', serif;
+  cursor: pointer;
 }
 
 .book--actions button:first-child {
