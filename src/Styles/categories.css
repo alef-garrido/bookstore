@@ -1,21 +1,16 @@
 .categories--container {
   overflow: hidden;
-  width: 100%;
   height: 90vh;
   display: grid;
   place-items: center;
 }
 
 .categories--container button {
-  border: none;
-  background-color: #0290ff;
-  color: white;
   padding: 1rem 2rem;
   cursor: pointer;
 }
 
 .status--display {
-  color: black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 3rem;
+  font-size: 10rem;
+  font-weight: 800;
 }
