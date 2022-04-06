@@ -4,7 +4,7 @@ const slice = createSlice({
   name: 'categories',
   initialState: [],
   reducers: {
-    getStatus: () => 'bookstore/categories/getStatus',
+    getStatus: () => 'Under Construction :)',
   },
 });
 
