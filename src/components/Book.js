@@ -12,6 +12,8 @@ function Book(props) {
     dispatch(removeBook(id));
   };
 
+  const getProgress = (max) => Math.floor(Math.random() * max);
+
   return (
     <li id={id} className="book--item">
       <div className="book--col-1">
@@ -34,13 +36,19 @@ function Book(props) {
       <div className="book--col-2">
         <img src={loader} alt="" className="loader--display" />
         <div>
-          <p className="progress--digit">64%</p>
+          <p className="progress--digit">
+            {`${getProgress(100)}%`}
+          </p>
           <small className="progress--title">Completed</small>
         </div>
       </div>
       <div className="book--col-3">
         <p className="chapter--title">CURRENT CHAPTER</p>
-        <p className="chapter--info">Chapter 17</p>
+        <p className="chapter--info">
+          {' '}
+          {`Chapter: ${getProgress(10)}`}
+          7
+        </p>
         <button className="chapter--btn" type="button">UPDATE PROGRESS</button>
       </div>
     </li>
