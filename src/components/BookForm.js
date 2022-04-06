@@ -34,6 +34,7 @@ function BookForm() {
     setInput(() => ({
       title: '',
       author: '',
+      category: '',
     }));
   };
 

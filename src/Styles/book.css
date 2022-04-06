@@ -131,11 +131,12 @@
   color: white;
   background-color: #0290ff;
   margin: 1.438rem 0;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem;
   border-radius: 3px;
   font-family: 'RobotoSlab', serif;
   font-size: 0.75rem;
   font-weight: 100;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   text-align: center;
+  cursor: pointer;
 }
