@@ -30,8 +30,18 @@ function Book(props) {
           <button type="button">Edit</button>
         </div>
       </div>
-      <div className="book--col-2" />
-      <div className="book--col-3" />
+      <div className="book--col-2">
+        <div className="progress--circle" />
+        <div>
+          <p className="progress--digit">64%</p>
+          <small className="progress--title">Completed</small>
+        </div>
+      </div>
+      <div className="book--col-3">
+        <p className="chapter--title">CURRENT CHAPTER</p>
+        <p className="chapter--info">Chapter 17</p>
+        <button className="chapter--btn" type="button">UPDATE PROGRESS</button>
+      </div>
     </li>
   );
 }

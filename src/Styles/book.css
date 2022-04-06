@@ -18,9 +18,10 @@
   justify-content: space-between;
 }
 
-.book--item p {
+.data--title {
   width: 100%;
   height: 1.813rem;
+  margin-top: 0.188rem;
   font-family: 'Roboto Slab', serif;
   font-size: 1.2rem;
   font-weight: bold;
@@ -33,17 +34,13 @@
 .data--category {
   margin: 0 4rem 0 0;
   opacity: 0.5;
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-size: 0.875rem;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
-}
-
-.data--title {
-  margin-top: 0.188rem;
 }
 
 .data--author {
@@ -61,7 +58,7 @@
   border: none;
   border-right: 0.5px solid rgba(128, 128, 128, 0.432);
   background-color: transparent;
-  margin-left: 0.938rem; 
+  margin-left: 0.938rem;
   padding-right: 0.938rem;
   color: #4386bf;
   font-family: 'Roboto Slab', serif;
@@ -73,4 +70,77 @@
 
 .book--actions button:last-child {
   border: none;
+}
+
+.book--col-2 {
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 1rem;
+  display: flex;
+}
+
+.book--col-2 * {
+  margin-right: 1.2rem;
+}
+
+.progress--circle {
+  width: 4.25rem;
+  height: 4.25rem;
+  border-style: solid;
+  border-width: 5px;
+  border-image-source: linear-gradient(to bottom, #307bbe, #379cf6);
+  border-image-slice: 1;
+  border-radius: 50%;
+}
+
+.progress--digit {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+}
+
+.progress--title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  color: #706e6e;
+}
+
+.book--col-3 {
+  align-self: center;
+  height: 4.375rem;
+  padding-left: 3.688rem;
+  border-left: 1px solid rgba(128, 128, 128, 0.432);
+}
+
+.chapter--title {
+  color:  #706e6e;
+  font-family: 'Roboto Slab', serif;
+  font-size: 0.813rem;
+  font-weight: 300;
+  margin-top: -8px;
+  margin-bottom: .5rem;
+}
+
+.chapter--info {
+  width: 100%;
+  font-family: 'RobotoSlab', serif;
+  font-size: 1rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.4px;
+}
+
+.chapter--btn {
+  border: none;
+  color: white;
+  background-color: #0290ff;
+  margin: 1.438rem 0;
+  padding: 0.438rem 1.188rem 0.5rem 1.375rem;
+  border-radius: 3px;
+  font-family: 'RobotoSlab', serif;
+  font-size: 0.813rem;
+  font-weight: 100;
+  letter-spacing: 0.5px;
+  text-align: center;
 }
